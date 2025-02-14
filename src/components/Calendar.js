@@ -1,9 +1,12 @@
-import React, { useState } from "react";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
-import EventPopup from "./EventPopup";
+import React, { useEffect,  useState } from 'react';
+ 
+
+
 import "react-big-calendar/lib/css/react-big-calendar.css";
 
+// Initialize localizer
 const localizer = momentLocalizer(moment);
 
 const CustomCalendar = ({ events, addEvent, editEvent, deleteEvent }) => {

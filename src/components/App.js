@@ -1,8 +1,9 @@
 
 import React, { useState } from "react";
-import Calendar from "./components/Calendar";
-import Filters from "./components/Filters";
-import moment from "moment";
+import Calendar from "./Calendar.js";  
+import Filters from "./Filters.js";  
+import moment from "moment/moment";
+
 
 const App = () => {
   const [events, setEvents] = useState([]);
