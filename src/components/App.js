@@ -1,13 +1,31 @@
 
-import React from "react";
-import './../styles/App.css';
+import React, { useState } from "react";
+import Calendar from "./components/Calendar";
+import Filters from "./components/Filters";
+import moment from "moment";
 
 const App = () => {
+  const [events, setEvents] = useState([]);
+
+  const addEvent = (newEvent) => {
+    setEvents([...events, newEvent]);
+  };
+
+  const editEvent = (id, updatedEvent) => {
+    setEvents(events.map(event => (event.id === id ? updatedEvent : event)));
+  };
+
+  const deleteEvent = (id) => {
+    setEvents(events.filter(event => event.id !== id));
+  };
+
   return (
     <div>
-        {/* Do not remove the main div */}
+      <h1>Event Tracker Calendar</h1>
+      <Filters events={events} setEvents={setEvents} />
+      <Calendar events={events} addEvent={addEvent} editEvent={editEvent} deleteEvent={deleteEvent} />
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
